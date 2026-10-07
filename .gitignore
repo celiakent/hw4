@@ -1,0 +1,27 @@
+# Data: the database and product images must not be committed
+data/
+data.zip
+*.db
+
+# Secrets (but keep the example template)
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / Vite
+node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+
+# Local dev credentials (never commit)
+.local_test_credentials.md
+
+# runtime image cache
+data/.products_white/

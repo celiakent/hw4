@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Customs — App Check</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Inter:wght@400;500&display=swap');
+    :root {
+      --yale-blue: #00356b;
+      --ink: #141a21;
+      --muted: #6b7681;
+      --line: #d9dde1;
+      --line-strong: #141a21;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 1px solid var(--line-strong);
+      padding: 2.5rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1, h2 { font-family: 'Archivo', sans-serif; letter-spacing: -0.01em; text-transform: uppercase; margin: 0; }
+    header h1 { font-size: 2.2rem; }
+    header p { color: var(--muted); margin: 0.75rem 0 0; }
+    .eyebrow { font-family: 'Archivo', sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 700; color: var(--muted); margin: 0 0 0.5rem; }
+    main { max-width: 960px; margin: 0 auto; padding: 1rem 2rem 4rem; }
+    .check { border: 1px solid var(--line-strong); margin-top: 2.5rem; }
+    .check-head { padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--line); }
+    .check-head h2 { font-size: 1.25rem; }
+    .check-head p { margin: 0.6rem 0 0; color: var(--ink); }
+    .check-head .tag { font-family: 'Archivo', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; font-weight: 700; color: var(--yale-blue); }
+    figure { margin: 0; }
+    figure img { display: block; width: 100%; height: auto; border-top: 1px solid var(--line); }
+    footer { max-width: 960px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Campus Customs · Yale Bulldog Blue</p>
+    <h1>Site Testing — App Check</h1>
+    <p>Three checks run against the live site, each with a screenshot and a note on what it proves.</p>
+  </header>
+
+  <main>
+    <section class="check">
+      <div class="check-head">
+        <p class="tag">Check 1 · Chat inventory</p>
+        <h2>The chatbot reports honest price and stock from the database</h2>
+        <p>
+          Asked the assistant for the Yale Mom Hoodie's price and per-size stock. It answered
+          $68.00 with XS 25, S 8, M 8, L 25, XL 8, XXL 2 — an exact match to the <code>inventory</code>
+          and <code>catalogue</code> tables, so the agent is reading real data, not inventing it.
+        </p>
+      </div>
+      <figure>
+        <img src="app_check_images/inventory.png" alt="Chat answering Yale Mom Hoodie price and per-size stock" />
+      </figure>
+    </section>
+
+    <section class="check">
+      <div class="check-head">
+        <p class="tag">Check 2 · Dynamic search cards</p>
+        <h2>A category question updates the page with matching product cards</h2>
+        <p>
+          Asking "What hoodies do you have?" in the chat makes the website itself render the
+          matching products as cards (image, name, price), under a "Matches for…" heading — not
+          just a text reply. Each card links to its single-item page.
+        </p>
+      </div>
+      <figure>
+        <img src="app_check_images/search_cards.png" alt="Hoodie product cards shown on the page after a chat question" />
+      </figure>
+    </section>
+
+    <section class="check">
+      <div class="check-head">
+        <p class="tag">Check 3 · Usability feature (Problem 9)</p>
+        <h2>The Products filter &amp; sort toolbar narrows the catalogue</h2>
+        <p>
+          On the Shop page, the filter/sort toolbar narrows by price ("Under $60") and sorts
+          ("Price: low to high"), with a live result count (58 products) — one of the usability
+          improvements added in Problem 9.
+        </p>
+      </div>
+      <figure>
+        <img src="app_check_images/filter_toolbar.png" alt="Products page toolbar filtering under $60 and sorting by price" />
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    Screenshots captured from the running app (React + Vite front end, FastAPI + PydanticAI backend).
+  </footer>
+</body>
+</html>
